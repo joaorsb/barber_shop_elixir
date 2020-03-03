@@ -3,8 +3,18 @@ defmodule BarberShopWeb.AdminControllerTest do
 
   alias BarberShop.Accounts
 
-  @create_attrs %{email: "some email", password: "some password", username: "some username", status: 0}
-  @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username", status: 0}
+  @create_attrs %{
+    email: "some email",
+    password: "some password",
+    username: "some username",
+    status: 0
+  }
+  @update_attrs %{
+    email: "some updated email",
+    password: "some updated password",
+    username: "some updated username",
+    status: 0
+  }
   @invalid_attrs %{email: nil, password: nil, username: nil, status: 0}
 
   def fixture(:admin) do
@@ -75,6 +85,7 @@ defmodule BarberShopWeb.AdminControllerTest do
     test "deletes chosen admin", %{conn: conn, admin: admin} do
       conn = delete(conn, Routes.admin_path(conn, :delete, admin))
       assert redirected_to(conn) == Routes.admin_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.admin_path(conn, :show, admin))
       end

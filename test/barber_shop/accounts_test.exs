@@ -7,8 +7,18 @@ defmodule BarberShop.AccountsTest do
     alias BarberShop.Accounts.Admin
     alias BarberShop.Accounts.AdminEnum
 
-    @valid_attrs %{email: "some email", password: "some password", username: "some username", status: :active}
-    @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username", status: :active}
+    @valid_attrs %{
+      email: "some email",
+      password: "some password",
+      username: "some username",
+      status: :active
+    }
+    @update_attrs %{
+      email: "some updated email",
+      password: "some updated password",
+      username: "some updated username",
+      status: :active
+    }
     @invalid_attrs %{email: nil, password: nil, username: nil, status: :inactive}
 
     def admin_fixture(attrs \\ %{}) do
