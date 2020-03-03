@@ -29,10 +29,11 @@ defmodule BarberShopWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(BarberShop.Repo)
+    alias Ecto.Adapters.SQL.Sandbox
+    :ok = Sandbox.checkout(BarberShop.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(BarberShop.Repo, {:shared, self()})
+      Sandbox.mode(BarberShop.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
