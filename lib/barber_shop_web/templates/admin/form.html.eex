@@ -17,6 +17,9 @@
   <%= text_input f, :password %>
   <%= error_tag f, :password %>
 
+  <%= label f, :status %>
+  <%= select f, :status , ['Inativo': :inactive, 'Ativo': :active]%>
+  <%= error_tag f, :status %>
   <div>
     <%= submit "Save" %>
   </div>

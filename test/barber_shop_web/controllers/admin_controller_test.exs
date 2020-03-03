@@ -3,9 +3,9 @@ defmodule BarberShopWeb.AdminControllerTest do
 
   alias BarberShop.Accounts
 
-  @create_attrs %{email: "some email", password: "some password", username: "some username"}
-  @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username"}
-  @invalid_attrs %{email: nil, password: nil, username: nil}
+  @create_attrs %{email: "some email", password: "some password", username: "some username", status: 0}
+  @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username", status: 0}
+  @invalid_attrs %{email: nil, password: nil, username: nil, status: 0}
 
   def fixture(:admin) do
     {:ok, admin} = Accounts.create_admin(@create_attrs)

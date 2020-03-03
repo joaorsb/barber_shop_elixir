@@ -2,6 +2,9 @@ import EctoEnum
 defenum(AdminEnum, inactive: 0, active: 1)
 
 defmodule BarberShop.Accounts.Admin do
+  @moduledoc """
+    Schema for Admins
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -17,8 +20,8 @@ defmodule BarberShop.Accounts.Admin do
   @doc false
   def changeset(admin, attrs) do
     admin
-    |> cast(attrs, [:username, :email, :password])
-    |> validate_required([:username, :email, :password])
+    |> cast(attrs, [:username, :email, :password, :status])
+    |> validate_required([:username, :email, :password, :status])
     |> unique_constraint(:email)
   end
 end

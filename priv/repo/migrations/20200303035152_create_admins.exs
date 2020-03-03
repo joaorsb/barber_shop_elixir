@@ -6,6 +6,7 @@ defmodule BarberShop.Repo.Migrations.CreateAdmins do
       add :username, :string
       add :email, :string
       add :password, :string
+      add :status, :integer
 
       timestamps()
     end

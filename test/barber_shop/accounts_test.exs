@@ -5,10 +5,11 @@ defmodule BarberShop.AccountsTest do
 
   describe "admins" do
     alias BarberShop.Accounts.Admin
+    alias BarberShop.Accounts.AdminEnum
 
-    @valid_attrs %{email: "some email", password: "some password", username: "some username"}
-    @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username"}
-    @invalid_attrs %{email: nil, password: nil, username: nil}
+    @valid_attrs %{email: "some email", password: "some password", username: "some username", status: :active}
+    @update_attrs %{email: "some updated email", password: "some updated password", username: "some updated username", status: :active}
+    @invalid_attrs %{email: nil, password: nil, username: nil, status: :inactive}
 
     def admin_fixture(attrs \\ %{}) do
       {:ok, admin} =
@@ -34,6 +35,7 @@ defmodule BarberShop.AccountsTest do
       assert admin.email == "some email"
       assert admin.password == "some password"
       assert admin.username == "some username"
+      assert admin.status == :active
     end
 
     test "create_admin/1 with invalid data returns error changeset" do
@@ -46,6 +48,7 @@ defmodule BarberShop.AccountsTest do
       assert admin.email == "some updated email"
       assert admin.password == "some updated password"
       assert admin.username == "some updated username"
+      assert admin.status == :active
     end
 
     test "update_admin/2 with invalid data returns error changeset" do
